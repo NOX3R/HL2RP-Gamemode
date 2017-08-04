@@ -1,0 +1,127 @@
+
+AddCSLuaFile("shared.lua")
+
+include("shared.lua")
+
+
+
+	citoyen = {
+		"models/player/group01/male_01.mdl",	
+		"models/player/Group01/Male_02.mdl",	
+		"models/player/Group01/male_03.mdl",	
+		"models/player/Group01/Male_04.mdl",	
+		"models/player/Group01/Male_05.mdl",	
+		"models/player/Group01/Male_06.mdl",	
+		"models/player/Group01/Male_07.mdl",	
+		"models/player/Group01/Male_08.mdl",	
+		"models/player/Group01/Male_09.mdl"
+	}
+	citoyenne = {
+		"models/player/Group01/Female_01.mdl",	
+		"models/player/Group01/Female_02.mdl",	
+		"models/player/Group01/Female_03.mdl",	
+		"models/player/Group01/Female_04.mdl",	
+		"models/player/Group01/Female_06.mdl",	
+	}
+	
+	rebelle = {"models/player/group03/male_01.mdl",	
+		"models/player/Group03/Male_02.mdl",	
+		"models/player/Group03/male_03.mdl",	
+		"models/player/Group03/Male_04.mdl",	
+		"models/player/Group03/Male_05.mdl",	
+		"models/player/Group03/Male_06.mdl",	
+		"models/player/Group03/Male_07.mdl",	
+		"models/player/Group03/Male_08.mdl",	
+		"models/player/Group03/Male_09.mdl"}
+	rebellef = {
+		"models/player/Group03/Female_01.mdl",	
+		"models/player/Group03/Female_02.mdl",
+		"models/player/Group03/Female_03.mdl",	
+		"models/player/Group03/Female_04.mdl",	
+		"models/player/Group03/Female_06.mdl"}
+	
+function ENT:Initialize()
+	self:SetModel("models/props_c17/SuitCase_Passenger_Physics.mdl")
+	self:PhysicsInit(SOLID_VPHYSICS)
+	self:SetMoveType(MOVETYPE_VPHYSICS)
+	self:SetSolid(SOLID_VPHYSICS)
+	local phys = self:GetPhysicsObject()
+
+	phys:Wake()
+
+	self.damage = 10
+end
+
+function ENT:OnTakeDamage(dmg)
+	self.damage = self.damage - dmg:GetDamage()
+
+	if (self.damage <= 0) then
+		local effectdata = EffectData()
+		effectdata:SetOrigin(self:GetPos())
+		effectdata:SetMagnitude(2)
+		effectdata:SetScale(2)
+		effectdata:SetRadius(3)
+		util.Effect("Sparks", effectdata)
+		self:Remove()
+	end
+end
+
+
+local NextPrintTime = 0
+local faction
+local suiton =false
+function ENT:Use(activator,caller)
+		if activator:Team()==TEAM_CITIZEN or activator:Team()==TEAM_CITIZENF then faction=citoyen end
+		if activator:Team()==TEAM_REB or activator:Team()==TEAM_REB_MED  or activator:Team()==TEAM_REBF or activator:Team()==TEAM_REB_MEDF  then faction=rebelle end
+		local male=true
+		if activator:Team()==TEAM_CITIZENF or activator:Team()==TEAM_REBF or activator:Team()==TEAM_REB_MEDF then male=false end
+		
+if (CurTime() >= NextPrintTime and (activator:Team()==TEAM_REB or activator:Team()==TEAM_REB_MED  or activator:Team()==TEAM_REBF or activator:Team()==TEAM_REB_MEDF)) then
+	if(!suiton) then
+
+		if faction==citoyen and male then
+		local model = rebelle[ math.random(1, #rebelle) ];
+			activator:SetModel(model)
+		end
+		if faction==rebelle and male then
+			local model = citoyen[ math.random(1, #citoyen) ];
+		activator:SetModel(model)
+		end
+		if faction==citoyen and !male then
+		local model = rebellef[ math.random(1, #rebellef) ];
+			activator:SetModel(model)
+		end
+		if faction==rebelle and !male then
+			local model = citoyenne[ math.random(1, #citoyenne) ];
+		activator:SetModel(model)
+		end
+		suiton =true
+		DarkRP.talkToRange(activator, "*"..activator:Nick() .. " change de vêtements", "", 250)
+	else
+ 		if faction==citoyen and male then
+		local model = citoyen[ math.random(1, #citoyen) ];
+			activator:SetModel(model)
+		end
+		if faction==rebelle and male then
+			local model = rebelle[ math.random(1, #rebelle) ];
+		activator:SetModel(model)
+		end 
+ 		if faction==citoyen and !male then
+		local model = citoyenne[ math.random(1, #citoyenne) ];
+			activator:SetModel(model)
+		end
+		if faction==rebelle and !male then
+			local model = rebellef[ math.random(1, #rebellef) ];
+		activator:SetModel(model)
+		end 
+		DarkRP.talkToRange(activator, "*"..activator:Nick() .. " change de vêtements", "", 250)
+		suiton =false
+	end
+		NextPrintTime = CurTime() + 5
+end
+end
+
+function ENT:OnRemove()
+	local ply = self:Getowning_ent()
+
+end

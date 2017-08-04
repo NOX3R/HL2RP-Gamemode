@@ -1,0 +1,10 @@
+MsgN(' ')
+MsgN(' ')
+MsgN('//////////////////////////////////')
+MsgN('//     HL2RP Gamemode chargé    //')
+MsgN('//      Développé par NOX3R     //')
+MsgN('//////////////////////////////////')
+MsgN(' ')
+MsgN(' ')
+
+CheckVersion()

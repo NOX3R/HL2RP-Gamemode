@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"name"		"Teams Radio for DarkRP"
+	"version"	"1.1"
+	"author_name"	"Barel"
+	"author_url"	"https://scriptfodder.com/users/view/76561198028513780"
+	"info"		""
+}

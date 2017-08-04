@@ -1,0 +1,15 @@
+"hl2rp"
+{
+	"base"		"sandbox"
+    "title"  "HL2RP"
+    "version"   "2.6.1"
+    "menusystem"	"1"
+
+    "author_name"   "NOX3R"
+    "author_email"  ""
+    "author_url"    "https://github.com/NOX3R/HL2RP-Gamemode"
+
+    "icon"  ""
+    "info"  ""
+    "hide"  "0"
+}

@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Voice Chat Meter"
+	"version"			"1"
+	"up_date"			""
+	"author_name"			"Jackool"
+	"author_email"			""
+	"author_url"			"http://www.AlexFrison.us/"
+	"info"				"Made for www.CoderHire.com (voice)"
+	"override"			"0"
+}

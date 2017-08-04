@@ -1,0 +1,6 @@
+"AddonInfo"
+{
+	"name" "Combine voice chat"
+	"author_name" "author"
+	"info" "This add the on/off noises that the combine use whenever someone uses voice chat. But it is clientside only."
+}

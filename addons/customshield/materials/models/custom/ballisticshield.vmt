@@ -1,0 +1,16 @@
+VertexLitGeneric
+{
+    $basetexture "models/custom/ballisticshield"
+    $bumpmap "models/custom/ballisticshield_nm"
+    $surfaceprop Metal
+
+    $envmap "env_cubemap"
+    $envmaptint "[0.012 0.012 0.012]"
+
+    $phong 1
+    $phongfresnelranges "[3 1 5]"
+    $phongexponent 5
+    $phongboost 0.06
+
+    $model 1
+}

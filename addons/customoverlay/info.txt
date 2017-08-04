@@ -1,0 +1,9 @@
+"AddonInfo"
+{
+	"name" "Pain Sounds"
+	"author_name" "author"
+	"info" "(Oh good... RP servers here we come...)
+
+
+
+}

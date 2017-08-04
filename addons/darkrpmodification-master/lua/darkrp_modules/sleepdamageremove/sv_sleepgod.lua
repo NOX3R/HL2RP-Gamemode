@@ -1,0 +1,2 @@
+
+hook.Remove("EntityTakeDamage", "Sleepdamage")

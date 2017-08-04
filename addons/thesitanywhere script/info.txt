@@ -1,0 +1,24 @@
+"AddonInfo"
+{
+	"name" "The sit anywhere script!"
+	"author_name" "author"
+	"info" "This script allows you to sit on nearly every flat edge! Just press alt (or the key you have walk bound to) + e (or the key you have use bound to) on the place you want to sit. Great for RP servers for that touch of sorta realism!
+ 
+[b][u]If you are unsure what your walk is bound to go into the options and under 'Miscellaneous Movement' in the keyboard tab and you should see an option to assign a key to 'Walk (Move Slowly)'.[/u][/b]
+
+(Due to how this script works its best to choose a location far from the edge or have some sort of backrest to achieve the best angle)
+
+I added some ConVars
+ sitting_ent_mode (3) - Changes the rules relating to entities 
+        0 - Cannot sit on any entity
+	1 - Cannot sit on any player owned Entities(Will act like 3 without prop protection)
+	2 - Can only sit on your own entities or world entities or entities that are not owned(Will act like 3 without prop protection)
+	3 - Any entity
+ sitting_can_sit_on_players (1) - Allow sitting on other players that are sitting down
+sitting_can_sit_on_player_ent (1) -- Allows sitting on the players itself
+sitting_can_damage_players_sitting (0) -- Makes players be able to get hurt in seats!
+
+READ:
+
+If you CANNOT sit, the problem is most likely YOURS. Please type 'bind alt +walk' in console and try to sit on a ledge again, if you cannot then it is my problem otherwise IT IS YOURS."
+}
